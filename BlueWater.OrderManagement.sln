@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderManagement.Common", "src\BlueWater.OrderManagement.Common\BlueWater.OrderManagement.Common.csproj", "{E0B73D15-EE48-4EE5-9A32-A97C6E4D216E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderManagement.Services", "src\BlueWater.OrderManagement.Services\BlueWater.OrderManagement.Services.csproj", "{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderMangement.WebApi", "src\BlueWater.OrderManagement.WebApi\BlueWater.OrderMangement.WebApi.csproj", "{267F1507-F195-457F-AD0B-EED8DD4D1FFB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderMangement.DataAccess", "src\BlueWater.OrderMangement.DataAccess\BlueWater.OrderMangement.DataAccess.csproj", "{C39C6524-1D5B-4E5D-8AC0-8799B3A5F164}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0B73D15-EE48-4EE5-9A32-A97C6E4D216E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B73D15-EE48-4EE5-9A32-A97C6E4D216E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B73D15-EE48-4EE5-9A32-A97C6E4D216E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B73D15-EE48-4EE5-9A32-A97C6E4D216E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{267F1507-F195-457F-AD0B-EED8DD4D1FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267F1507-F195-457F-AD0B-EED8DD4D1FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267F1507-F195-457F-AD0B-EED8DD4D1FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267F1507-F195-457F-AD0B-EED8DD4D1FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39C6524-1D5B-4E5D-8AC0-8799B3A5F164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39C6524-1D5B-4E5D-8AC0-8799B3A5F164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39C6524-1D5B-4E5D-8AC0-8799B3A5F164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39C6524-1D5B-4E5D-8AC0-8799B3A5F164}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9C95D13-48DD-4B2B-90D6-BB74163B703E}
+	EndGlobalSection
+EndGlobal
