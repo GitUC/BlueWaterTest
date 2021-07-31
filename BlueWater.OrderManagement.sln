@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderManagement.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderManagement.Services", "src\BlueWater.OrderManagement.Services\BlueWater.OrderManagement.Services.csproj", "{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderManagement.Test", "test\BlueWater.OrderManagement.Test\BlueWater.OrderManagement.Test.csproj", "{B81EEAEA-B01E-4060-A591-E3596C978B68}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderManagement.WebHost", "src\BlueWater.OrderManagement.WebHost\BlueWater.OrderManagement.WebHost.csproj", "{E44C28A1-463C-47D2-8668-F4833946C8AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderManagement.WebApi", "src\BlueWater.OrderManagement.WebApi\BlueWater.OrderManagement.WebApi.csproj", "{4216C17F-E09F-40A3-9536-B25C680A2687}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueWater.OrderManagement.DataAccess", "src\BlueWater.OrderManagement.DataAccess\BlueWater.OrderManagement.DataAccess.csproj", "{F62BBAE6-4FF7-48BD-A0DA-EDB6EC01EA44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueWater.OrderManagement.Test", "test\BlueWater.OrderManagement.Test\BlueWater.OrderManagement.Test.csproj", "{26411FB7-DF74-4F61-AC44-93FCB89BCB5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEC1F970-9AAC-41A7-B4E9-42A2D9AD4148}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B81EEAEA-B01E-4060-A591-E3596C978B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B81EEAEA-B01E-4060-A591-E3596C978B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B81EEAEA-B01E-4060-A591-E3596C978B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B81EEAEA-B01E-4060-A591-E3596C978B68}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E44C28A1-463C-47D2-8668-F4833946C8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E44C28A1-463C-47D2-8668-F4833946C8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E44C28A1-463C-47D2-8668-F4833946C8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{F62BBAE6-4FF7-48BD-A0DA-EDB6EC01EA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F62BBAE6-4FF7-48BD-A0DA-EDB6EC01EA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F62BBAE6-4FF7-48BD-A0DA-EDB6EC01EA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26411FB7-DF74-4F61-AC44-93FCB89BCB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26411FB7-DF74-4F61-AC44-93FCB89BCB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26411FB7-DF74-4F61-AC44-93FCB89BCB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26411FB7-DF74-4F61-AC44-93FCB89BCB5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

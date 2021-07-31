@@ -50,9 +50,8 @@ namespace BlueWater.OrderManagement.Test.Steps
             Assert.Equal(statusCode, (int)_httpClient.Response.StatusCode);
         }
 
-
-        [Then(@"The product created in the system")]
-        public async Task ThenProdectCreatesdIneTheSystem()
+        [When(@"I check the created product")]
+        public async Task WhenCheckTheCreatedProduct()
         {
             var productId = HostingContext.Product.ProductId;
 
