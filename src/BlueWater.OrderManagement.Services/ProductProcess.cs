@@ -1,13 +1,12 @@
 ﻿using BlueWater.OrderManagement.Common.Contracts;
 using BlueWater.OrderManagement.Services.Interfaces;
-using BlueWater.OrderMangement.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using BlueWater.OrderMangement.DataAccess.DataModel;
 using Microsoft.Extensions.Logging;
+using BlueWater.OrderMangement.DataAccess;
+using BlueWater.OrderMangement.DataAccess.DataModel;
 
 namespace BlueWater.OrderManagement.Services
 {

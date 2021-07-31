@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.24" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.24" />
+    <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.8" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.5" />
+
+
+    <PackageReference Include="SpecFlow.xUnit" Version="3.9.8" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Drivers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BlueWater.OrderManagement.Common\BlueWater.OrderManagement.Common.csproj" />
+    <ProjectReference Include="..\..\src\BlueWater.OrderManagement.WebApi\BlueWater.OrderManagement.WebApi.csproj" />
+    <ProjectReference Include="..\..\src\BlueWater.OrderManagement.WebApi\BlueWater.OrderMangement.WebApi.csproj" />
+    <ProjectReference Include="..\..\src\BlueWater.OrderMangement.DataAccess\BlueWater.OrderMangement.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -11,7 +11,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace BlueWater.OrderManagement.OrderMangement.WebApi.Controllers
 {
-    [Route("api/order")]
+    [Route("api/v1/orders")]
     [ApiController]
     public class OrderController : ControllerBase
     {

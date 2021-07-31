@@ -20,7 +20,6 @@ namespace BlueWater.OrderManagement.WebApi
 {
     public class Startup
     {
-
         private readonly string SqlDatabaseConnection = "SqlDatabaseConnection";
 
         public Startup(IConfiguration configuration)
@@ -31,7 +30,7 @@ namespace BlueWater.OrderManagement.WebApi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
 
             /*
@@ -135,7 +134,7 @@ namespace BlueWater.OrderManagement.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(
+        public virtual void Configure(
             IApplicationBuilder app, IWebHostEnvironment env, IBackgroundJobClient backgroundJobClient,
             IRecurringJobManager recurringJobManager, IServiceProvider serviceProvider, ILogger<Startup> logger)
         {

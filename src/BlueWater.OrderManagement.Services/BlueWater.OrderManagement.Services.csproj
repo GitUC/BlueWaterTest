@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlueWater.OrderManagement.Common\BlueWater.OrderManagement.Common.csproj" />
-    <ProjectReference Include="..\BlueWater.OrderMangement.DataAccess\BlueWater.OrderMangement.DataAccess.csproj" />
+    <ProjectReference Include="..\BlueWater.OrderManagement.DataAccess\BlueWater.OrderManagement.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

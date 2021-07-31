@@ -1,9 +1,10 @@
+using BlueWater.OrderManagement.WebApi;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
 
-namespace BlueWater.OrderManagement.WebApi
+namespace BlueWater.OrderManagement.WebHost
 {
     public class Program
     {

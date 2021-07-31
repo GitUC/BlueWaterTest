@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace BlueWater.OrderManagement.WebApi.Controllers
 {
-    [Route("api/product")]
+    [Route("api/v1/products")]
     [ApiController]
     public class ProductController : ControllerBase
     {
