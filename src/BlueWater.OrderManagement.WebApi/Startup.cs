@@ -15,6 +15,9 @@ using BlueWater.OrderManagement.Services.Interfaces;
 using BlueWater.OrderMangement.DataAccess;
 using BlueWater.OrderManagement.Common.Contracts;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
 
 namespace BlueWater.OrderManagement.WebApi
 {
@@ -32,32 +35,20 @@ namespace BlueWater.OrderManagement.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public virtual void ConfigureServices(IServiceCollection services)
         {
-
-            /*
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddMicrosoftIdentityWebApi(Configuration);
 
-            var roles = new List<string>() { "DaemonAppRole" };
-
+            var roles = new List<string>() { "OrderAdminRole" };
 
             services.AddAuthorization(options =>
-                options.AddPolicy("DaemonAppRolePolicy",
+                options.AddPolicy("OrderAdmiPolicy",
                 policy => policy.RequireRole(roles)));
 
-            */
 
             services.AddControllers();
 
             services.AddServiceModule();
             services.AddDataModule(Configuration, SqlDatabaseConnection, false);
-
-            /* 
-            // memory storage for hangfire
-            services.AddHangfire(config => config.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
-                                           .UseSimpleAssemblyNameTypeSerializer()
-                                           .UseDefaultTypeSerializer()
-                                           .UseMemoryStorage());
-            */
 
 
             services.AddHangfire(configuration => configuration
@@ -138,14 +129,15 @@ namespace BlueWater.OrderManagement.WebApi
             IApplicationBuilder app, IWebHostEnvironment env, IBackgroundJobClient backgroundJobClient,
             IRecurringJobManager recurringJobManager, IServiceProvider serviceProvider, ILogger<Startup> logger)
         {
+
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
+                app.UseExceptionHandler("/error-development");
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseExceptionHandler("/error");
             }
 
             app.UseSerilogRequestLogging();

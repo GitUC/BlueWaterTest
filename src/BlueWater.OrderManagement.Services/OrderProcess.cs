@@ -8,32 +8,40 @@ namespace BlueWater.OrderManagement.Services
 {
     public class OrderProcess : IOrderProcess
     {
-        //private readonly ILogger<OrderProcess> _logger;
+        private readonly ILogger<OrderProcess> _logger;
 
         public OrderProcess(ILogger<OrderProcess> logger)
         {
-            /*
-            if (logger == null)
-                throw new ArgumentNullException(nameof(logger));
-
-            _logger = logger;
-            */
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+         
         }
 
-        public Guid CreateOrder(Orders order)
+        public void CreateOrder(Orders order)
         {
-            // to background task, long running
-            var result = Guid.NewGuid();
-
-            System.Threading.Thread.Sleep(20000);
-
-            return result;
+            try
+            {
+                // to background task, long running
+                System.Threading.Thread.Sleep(20000);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed in CreateOrder process, message: {ex.Message}.", ex);
+                throw;
+            }
         }
 
         public void DispatchOrder()
         {
-            // to background task, long running
-            System.Threading.Thread.Sleep(5000);
+            try
+            {
+                // to background task, long running
+                System.Threading.Thread.Sleep(5000);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"Failed in DispatchOrder process, message: {ex.Message}.", ex);
+                throw;
+            }
         }
 
         public string GetOrderStatus(string jobId)

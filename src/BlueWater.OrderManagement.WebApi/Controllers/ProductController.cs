@@ -78,12 +78,12 @@ namespace BlueWater.OrderManagement.WebApi.Controllers
         /// update a product
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="productUnitPrice"></param>
+        /// <param name="productUnitprice"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(Guid id, double productUnitPrice)
+        public async Task<ActionResult> Put(Guid id, double productUnitprice)
         {
-            var result = await _productPorcessor.UpdateProductUnitPriceAsync(id, productUnitPrice);
+            var result = await _productPorcessor.UpdateProductUnitPriceAsync(id, productUnitprice);
 
             return result ? Ok() : NotFound($"Product '{id}' not existed in the system.");
         }

@@ -15,8 +15,8 @@ namespace BlueWater.OrderManagement.Test.Hooks
 {
     internal class TestStartup : Startup
     {
-
         private readonly string SqlDatabaseConnection = "SqlDatabaseConnection";
+
         /// <summary>
         /// Gets serviceCollection
         /// </summary>
@@ -37,7 +37,7 @@ namespace BlueWater.OrderManagement.Test.Hooks
             services.AddControllers();
 
             services.AddServiceModule();
-            services.AddDataModule(Configuration, SqlDatabaseConnection, true);
+            services.AddDataModule(Configuration, SqlDatabaseConnection, true); //inMemory DB 
 
             // memory storage for hangfire
             services.AddHangfire(config => config.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
@@ -55,7 +55,7 @@ namespace BlueWater.OrderManagement.Test.Hooks
             IApplicationBuilder app, IWebHostEnvironment env, IBackgroundJobClient backgroundJobClient,
             IRecurringJobManager recurringJobManager, IServiceProvider serviceProvider, ILogger<Startup> logger)
         {
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

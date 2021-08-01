@@ -1,10 +1,9 @@
 ﻿using BlueWater.OrderManagement.Common.Contracts;
-using BlueWater.OrderMangement.DataAccess;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Serilog;
+using System.Net.Http;
 using TechTalk.SpecFlow;
 
 namespace BlueWater.OrderManagement.Test.Hooks
@@ -12,38 +11,31 @@ namespace BlueWater.OrderManagement.Test.Hooks
     [Binding]
     public static class HostingContext
     {
-
-        /// <summary>
-        /// Connection string key
-        /// </summary>
-        public const string ConnectionStringKey = "SqlDatabaseConnection";
-
         internal static IConfiguration Configuration { get; set; }
-        
+
         /// <summary>
         /// Gets microsoft Test Server
         /// </summary>
         internal static TestServer Server { get; private set; }
 
-      
         /// <summary>
         /// payload for Produt
         /// </summary>
         internal static ProductPayload ProductPayload { get; set; } 
 
+        /// <summary>
+        /// Product item
+        /// </summary>
         internal static ProductDto Product { get; set; }
 
-        public static bool UseInMemoryDb
-        {
-            get
-            {
-                return (bool)Configuration.GetValue(typeof(bool), "InMemoryDbUse");
-            }
-        }
+        internal static Orders OrderPayload { get; set; }
 
+        internal static ScheduleDateTime ScheduleDateTime { get; set; }
+
+        internal static string JobId { get; set; }
 
         /// <summary>
-        /// Initial Setup Before the whole component tests run
+        /// Initial Setup Before the component tests run
         /// </summary>
         [BeforeTestRun]
         public static void Setup()
@@ -60,12 +52,7 @@ namespace BlueWater.OrderManagement.Test.Hooks
               .UseSerilog()
               .UseStartup<TestStartup>();
 
-
             Server = new TestServer(builder);
-            if (!UseInMemoryDb)
-            {
-                InitializeDatabase();
-            }
         }
 
         /// <summary>
@@ -87,40 +74,7 @@ namespace BlueWater.OrderManagement.Test.Hooks
         [BeforeScenario]
         public static void ScenarioSetup()
         {
-            if (!UseInMemoryDb)
-            {
-                CleanupDatabase();
-            }
-        }
-
-        private static void CleanupDatabase()
-        {
-            var DatabaseConnectionString = Configuration.GetConnectionString("SqlDatabaseConnection");
-
-            using (var context = new OrderDataContext(new DbContextOptionsBuilder<OrderDataContext>()
-                    .UseSqlServer(DatabaseConnectionString)
-                    .UseLoggerFactory(null)
-                    .Options))
-            {
-                context.Products.RemoveRange(context.Products);
-                context.SaveChanges();
-            }
-        }
-
-        private static void InitializeDatabase()
-        {
-            var DatabaseConnectionString = Configuration.GetConnectionString("SqlDatabaseConnection");
-
-            using (var context = new OrderDataContext(new DbContextOptionsBuilder<OrderDataContext>()
-                    .UseSqlServer(DatabaseConnectionString)
-                    .UseLoggerFactory(null)
-                    .Options))
-            {
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-               // context.Database.ExecuteSqlCommand("ALTER DATABASE CURRENT SET ALLOW_SNAPSHOT_ISOLATION ON");
-               // context.Database.ExecuteSqlCommand("ALTER DATABASE CURRENT SET READ_COMMITTED_SNAPSHOT ON");
-            }
+           
         }
     }
 }

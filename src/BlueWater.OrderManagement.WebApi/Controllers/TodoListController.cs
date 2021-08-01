@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BlueWater.OrderManagement.Common.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,12 +24,17 @@ namespace BlueWater.OrderManagement.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Only Use to test Exception handling 
+        /// </summary>
+        /// <returns></returns>
         // GET: api/todolist
         [HttpGet]
         public IActionResult Get()
         {
-            //HttpContext.ValidateAppRole("DaemonAppRole");
-            return Ok(TodoStore.Values);
+            string test = null;
+            throw new ArgumentNullException(nameof(test));
+            //return Ok(TodoStore.Values);
         }
     }
 }

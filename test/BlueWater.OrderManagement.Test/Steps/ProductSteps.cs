@@ -1,11 +1,8 @@
-﻿using System;
-using BlueWater.OrderManagement.Test.Hooks;
+﻿using BlueWater.OrderManagement.Test.Hooks;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using BlueWater.OrderManagement.Common.Contracts;
-using System.Net.Http;
 using HttpClient = BlueWater.OrderManagement.Test.Hooks.HttpClient;
-using Newtonsoft.Json;
 using Xunit;
 
 namespace BlueWater.OrderManagement.Test.Steps
@@ -38,12 +35,12 @@ namespace BlueWater.OrderManagement.Test.Steps
 
                 if (content != null)
                 {
-                    HostingContext.Product = await ReadAsJsonAsync<ProductDto>(content);
+                    HostingContext.Product = await CommonSteps.ReadAsJsonAsync<ProductDto>(content);
                 }
             }
         }
 
-        [Then(@"the result should be (.*)")]
+        [Then(@"The result should be (.*).")]
         [Then(@"And the result should be  (.*).")]
         public void ThenTheResultShouldBe(int statusCode)
         {
@@ -51,7 +48,8 @@ namespace BlueWater.OrderManagement.Test.Steps
         }
 
         [When(@"I check the created product")]
-        public async Task WhenCheckTheCreatedProduct()
+        [When(@"I check the updated product")]
+        public async Task WhenCheckTheProduct()
         {
             var productId = HostingContext.Product.ProductId;
 
@@ -64,7 +62,7 @@ namespace BlueWater.OrderManagement.Test.Steps
 
                 if (content != null)
                 {
-                    var newProduct = await ReadAsJsonAsync<ProductDto>(content);
+                    var newProduct = await CommonSteps.ReadAsJsonAsync<ProductDto>(content);
 
                     Assert.Equal(HostingContext.ProductPayload.ProductName, newProduct.ProductName);
                     Assert.Equal(HostingContext.ProductPayload.UnitPrice, newProduct.UnitPrice);
@@ -72,21 +70,24 @@ namespace BlueWater.OrderManagement.Test.Steps
             }
         }
 
-        /// <summary>
-        /// helper method to read HttpContent to an object
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="content"></param>
-        /// <returns></returns>
-        async Task<T> ReadAsJsonAsync<T>(HttpContent content)
+        [When(@"I update the unit price to (.*)")]
+        public async Task WhenIUpdateTheUnitPriceTo(double newPrice)
         {
-            if (content == null)
-            {
-                throw new ArgumentNullException(nameof(content));
-            }
+            var productId = HostingContext.Product.ProductId;
 
-            var json = await content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<T>(json);
+            var result = await _httpClient.Put($"api/v1/products/{productId}?productUnitprice={newPrice}");
+            if (result.IsSuccessStatusCode)
+            {
+                HostingContext.ProductPayload.UnitPrice = newPrice;
+            }
+        }
+
+        [When(@"I delete the test product")]
+        public async Task WhenIDeleteTheTestProduct()
+        {
+            var productId = HostingContext.Product.ProductId;
+
+            await _httpClient.Delete($"api/v1/products/{productId}");
         }
 
     }

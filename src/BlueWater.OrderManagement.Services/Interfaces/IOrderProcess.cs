@@ -5,7 +5,7 @@ namespace BlueWater.OrderManagement.Services.Interfaces
 {
     public interface IOrderProcess
     {
-        Guid CreateOrder(Orders order);
+        void CreateOrder(Orders order);
 
         string GetOrderStatus(string id);
 

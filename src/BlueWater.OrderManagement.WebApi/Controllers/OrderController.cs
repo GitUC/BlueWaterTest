@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using System;
 using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +14,7 @@ namespace BlueWater.OrderManagement.OrderMangement.WebApi.Controllers
 {
     [Route("api/v1/orders")]
     [ApiController]
+   // [Authorize(Roles="OrderAdminRole")]
     public class OrderController : ControllerBase
     {
         private IOrderProcess _orderProcess;
@@ -28,7 +30,6 @@ namespace BlueWater.OrderManagement.OrderMangement.WebApi.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         }
-
 
         /// <summary>
         /// Get order job's status
