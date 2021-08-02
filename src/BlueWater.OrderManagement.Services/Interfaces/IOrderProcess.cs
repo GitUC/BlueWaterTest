@@ -1,14 +1,15 @@
 ﻿using BlueWater.OrderManagement.Common.Contracts;
 using System;
+using System.Threading.Tasks;
 
 namespace BlueWater.OrderManagement.Services.Interfaces
 {
     public interface IOrderProcess
     {
-        void CreateOrder(Orders order);
+        Task CreateOrder(Orders order);
 
         string GetOrderStatus(string id);
 
-        void DispatchOrder();
+        Task DispatchOrder();
     }
 }

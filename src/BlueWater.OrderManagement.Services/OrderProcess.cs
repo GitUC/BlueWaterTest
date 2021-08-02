@@ -3,6 +3,7 @@ using BlueWater.OrderManagement.Services.Interfaces;
 using Hangfire;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Threading.Tasks;
 
 namespace BlueWater.OrderManagement.Services
 {
@@ -16,12 +17,13 @@ namespace BlueWater.OrderManagement.Services
          
         }
 
-        public void CreateOrder(Orders order)
+        public async Task CreateOrder(Orders order)
         {
             try
             {
                 // to background task, long running
-                System.Threading.Thread.Sleep(20000);
+                await Task.Delay(20000);
+                _logger.LogInformation("Order job has been craeted in the system.");
             }
             catch (Exception ex)
             {
@@ -30,12 +32,14 @@ namespace BlueWater.OrderManagement.Services
             }
         }
 
-        public void DispatchOrder()
+        public async Task DispatchOrder()
         {
             try
             {
                 // to background task, long running
-                System.Threading.Thread.Sleep(5000);
+                await Task.Delay(5000);
+
+                _logger.LogInformation("Dispatch job has completed in the system.");
             }
             catch(Exception ex)
             {
